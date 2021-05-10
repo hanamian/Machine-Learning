@@ -30,8 +30,13 @@
     - **F1-Score** = 2 * (Recall*Precission) / (Recall + Precission)
 
 
+## Continuous Value vs Discrete Value
+- Continuous Value : numerik (Contohnya: prediksi harga rumah, harga saham, suhu)
+- Discrete Value : kategorikal (Contohnya: prediksi SPAM(1) atau NOT SPAM(0))
+
 ## Contoh Implementasi
 ### 1. Decision Tree
+Klasifikasi
 ```python
 import pandas as pd
 from sklearn.model_selection import train_test_split
@@ -53,8 +58,8 @@ model = model.fit(X_train, y_train)
 pred = model.predict(X_test)
 
 # Evaluation
-print('Akurasi Training: ', model.score(X_train, y_train)
-print('Akurasi Testing: ', model.score(X_test, y_test)
+print('Training Accuracy: ', model.score(X_train, y_train)
+print('Testing Accuracy: ', model.score(X_test, y_test)
 
 # Confusion matrix
 cm = confusion_matrix(y_test, pred)
@@ -73,3 +78,41 @@ Result:
 ![image](https://user-images.githubusercontent.com/49611937/117685101-cd974b80-b1df-11eb-9507-23c38cfc97af.png)
 
 ---
+### 2. Logistic Regression
+Klasifikasi. Hanya mengolah data numerik. Selain untuk *Binary Clasification*(1-0), bisa juga untuk *multiclass classification problem*.
+Rumusnya sama dengan Linear Regression:
+
+![image](https://user-images.githubusercontent.com/49611937/117693137-e60b6400-b1e7-11eb-8966-8512598f26cf.png)
+
+Karena **Output** Logistic Regression = **1** atau **0**, maka real value perlu diubah ke 1 atau 0 menggunakan **Fungsi Sigmoid**. >0.5 = 1 dan <0.5 =0. Rumus Fungsi Sigmoid adalah:
+
+![image](https://user-images.githubusercontent.com/49611937/117693168-ee639f00-b1e7-11eb-8c66-d68834f2f28f.png)
+
+```python
+from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import confusion_matrix, classification_report
+
+lr = LogisticRegression()
+
+# Training
+lr = lr.fit(X_train, y_train)
+
+# Testing
+pred = lr.predict(X_test)
+
+print('Training Accuracy: ', lr.score(X_train, y_train))
+print('Testing Accuracy: ', lr.score(X_test, y_test)
+
+# Confusion Matrix
+cm = confusion_matrix(y_test, pred)
+print(cm)
+
+# Classification Report
+cr = classification_report(y_test, pred)
+```
+Result:
+
+![image](https://user-images.githubusercontent.com/49611937/117695698-b4e06300-b1ea-11eb-9891-36c589fec5f5.png)
+![image](https://user-images.githubusercontent.com/49611937/117695734-c0338e80-b1ea-11eb-85ef-c078904cc212.png)
+![image](https://user-images.githubusercontent.com/49611937/117695764-c9246000-b1ea-11eb-80e0-3d1d49dfb863.png)
+
