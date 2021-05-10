@@ -3,8 +3,8 @@
 
 ![image](https://user-images.githubusercontent.com/49611937/117688727-4055f600-b1e3-11eb-83e5-80b8df160b1c.png)
 
-1. **Regression**: Linear Regression
-2. **Classification**: Decision Tree, Logistic Regression
+1. **Regression**: Linear Regression, Decision Tree
+2. **Classification**: Logistic Regression, Decision Tree
 3. **Clustering**: K-Means Clustering
 
 ## Confusion Matrix
@@ -36,7 +36,15 @@
 
 ## Contoh Implementasi
 ### 1. Decision Tree
-Klasifikasi
+Bisa untuk Klasifikasi dan Regresi. Strukturnya adalah seperti berikut:
+
+![image](https://user-images.githubusercontent.com/49611937/117696601-af374d00-b1eb-11eb-95ea-0960af09991a.png)
+
+Struktur ini terdiri dari:
+1. **Decision Node** yang merupakan feature/input variabel
+2. **Branch** yang ditunjukkan oleh garis hitam berpanah, yang adalah rule/aturan
+3. **Leaf Node** yang merupakan output/hasil.
+
 ```python
 import pandas as pd
 from sklearn.model_selection import train_test_split
@@ -95,13 +103,13 @@ from sklearn.metrics import confusion_matrix, classification_report
 lr = LogisticRegression()
 
 # Training
-lr = lr.fit(X_train, y_train)
+model = lr.fit(X_train, y_train)
 
 # Testing
 pred = lr.predict(X_test)
 
-print('Training Accuracy: ', lr.score(X_train, y_train))
-print('Testing Accuracy: ', lr.score(X_test, y_test)
+print('Training Accuracy: ', model.score(X_train, y_train))
+print('Testing Accuracy: ', model.score(X_test, y_test)
 
 # Confusion Matrix
 cm = confusion_matrix(y_test, pred)
@@ -113,6 +121,8 @@ cr = classification_report(y_test, pred)
 Result:
 
 ![image](https://user-images.githubusercontent.com/49611937/117695698-b4e06300-b1ea-11eb-9891-36c589fec5f5.png)
+
 ![image](https://user-images.githubusercontent.com/49611937/117695734-c0338e80-b1ea-11eb-85ef-c078904cc212.png)
+
 ![image](https://user-images.githubusercontent.com/49611937/117695764-c9246000-b1ea-11eb-80e0-3d1d49dfb863.png)
 
