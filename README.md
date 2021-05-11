@@ -126,3 +126,22 @@ Result:
 
 ![image](https://user-images.githubusercontent.com/49611937/117695764-c9246000-b1ea-11eb-80e0-3d1d49dfb863.png)
 
+---
+### 3. Linear Regression
+Digunakan untuk regresi data numerik/ continuous variable. Model regresi ada 2:
+1. **Simple regression model** : model regresi paling sederhana, hanya terdiri dari **1 feature (univariate)** dan **1 target**.
+
+![image](https://user-images.githubusercontent.com/49611937/117701065-fd9b1a80-b1f0-11eb-8c2f-3a7b433b97a9.png)
+
+3. **Multiple regression model** : sesuai namanya, terdiri dari **beberapa feature (multivariate)**.
+
+![image](https://user-images.githubusercontent.com/49611937/117701092-05f35580-b1f1-11eb-9d1a-218c73d66e0c.png)
+
+![image](https://user-images.githubusercontent.com/49611937/117701267-39ce7b00-b1f1-11eb-808d-a46fc39abc44.png)
+
+- **y** : target
+- **X** : feature
+- **a** : intercept
+- **b** : slope
+
+
