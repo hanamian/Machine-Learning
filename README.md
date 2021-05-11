@@ -70,8 +70,8 @@ model = model.fit(X_train, y_train)
 pred = model.predict(X_test)
 
 # Evaluation
-print('Training Accuracy: ', model.score(X_train, y_train)
-print('Testing Accuracy: ', model.score(X_test, y_test)
+print('Training Accuracy: ', model.score(X_train, y_train))
+print('Testing Accuracy: ', model.score(X_test, y_test))
 
 # Confusion matrix
 cm = confusion_matrix(y_test, pred)
@@ -113,7 +113,7 @@ model = logreg.fit(X_train, y_train)
 pred = logreg.predict(X_test)
 
 print('Training Accuracy: ', model.score(X_train, y_train))
-print('Testing Accuracy: ', model.score(X_test, y_test)
+print('Testing Accuracy: ', model.score(X_test, y_test))
 
 # Confusion Matrix
 cm = confusion_matrix(y_test, pred)
