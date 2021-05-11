@@ -195,8 +195,7 @@ Result:
 
 ![image](https://user-images.githubusercontent.com/49611937/117748633-973aea00-b23a-11eb-9c27-c46c1624c18b.png)
 
-![image](https://user-images.githubusercontent.com/49611937/117750233-47115700-b23d-11eb-838a-668b3e1be8cf.png)
-
+![image](https://user-images.githubusercontent.com/49611937/117785080-6d031f80-b26e-11eb-9e4e-02587823631c.png)
 ---
 ### 4. K-Means Clustering
 *Clustering* memproses data dan mengelompokkannya berdasarkan kesamaan antar objek/sampel dalam satu kluster.
@@ -247,5 +246,27 @@ Result:
 
 ![image](https://user-images.githubusercontent.com/49611937/117758418-374d3f00-b24c-11eb-9fe2-34e4c00b9747.png)
 
----
-### 
+```python
+# Mencari n_clusters optimal
+
+import matplotlib.pyplot as plt
+from sklearn.cluster import KMeans
+
+# Elbow method, inertia plot
+inertia = []
+for k in range(0,10):
+    cluster_model = KMeans(n_clusters=k, random_state=24)
+    cluster_model.fit(X)
+    inertia_value = cluster_model.inertia_
+    inertia.append(inertia_value)
+
+plt.plot(range(1,10), inertia)
+plt.title('The Elbow Method - Inertia plot', fontsize = 20)
+plt.xlabel('No. of Clusters')
+plt.ylabel('inertia')
+plt.show()
+```
+Result:
+
+Dari Elbow method, diperoleh bahwa n_clusters atau K terbaik adalah **5**
+![image](https://user-images.githubusercontent.com/49611937/117784478-cf0f5500-b26d-11eb-8182-9e9867366a74.png)
